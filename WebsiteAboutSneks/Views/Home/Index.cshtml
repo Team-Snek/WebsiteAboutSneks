@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<head>
+    <style>
+
+        .image {
+            opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .picture:hover .image {
+            opacity: 0.3;
+        }
+
+        .picture:hover .middle {
+            opacity: 1;
+        }
+
+        .text {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+        }
+    </style>
+</head>
+<div class="container">
+    <div class="jumbotron" style="background-image:url(https://i.pinimg.com/originals/18/fe/1d/18fe1dd21bf252dea24c86a34c3adbf6.jpg); background-size:cover; min-height:350px"></div>
+    <h1>Snake World</h1>
+    <blockquote>
+        <h2><i>Every great story seems to begin with a snake.</i></h2>
+        <p>-Nicolas Cage</p>
+    </blockquote>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="picture">
+                <img src="http://www.sciencemag.org/sites/default/files/styles/article_main_large/public/images/cc_iStock_18996432_LARGE_16x9.jpg?itok=Xd6hKkof" alt="Avatar" class="image thumbnail" style="width:100%">
+                <div class="middle">
+                    <div>
+                        <a href="@Url.Action("Index","Snakes")"  class="text">Snakes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="picture">
+                <img src="https://animals.sandiegozoo.org/sites/default/files/2016-10/animals_hero_snakes.jpg" alt="Avatar" class="image thumbnail" style="width:100%">
+                <div class="middle">
+                    <div>
+                        <a href="@Url.Action("Index","About")"  class="text">About Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="picture">
+                <img src="https://i.ytimg.com/vi/sDXXYK8_avg/maxresdefault.jpg" alt="Avatar" class="image thumbnail" style="width:100%">
+                <div class="middle">
+                    <div>
+                        <a href="@Url.Action("Index","Contact")" class="text">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
