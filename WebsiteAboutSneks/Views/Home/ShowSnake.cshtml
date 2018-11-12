@@ -12,12 +12,20 @@
         snek = ViewBag.Snek;
         ViewBag.Title = snek.snakeName;
 
-        <h2>@snek.snakeName</h2>
-        <img src="@snek.linkToPic" class="img-responsive img-rounded" />
-        <p><strong>Owner:</strong> @snek.ownerName</p>
-        <p><strong>Age:</strong> @snek.snakeAge</p>
-        <p><strong>Breed:</strong> @snek.snakeBreed</p>
-        <p>@snek.snakeTalk</p>
+        <div class="container show-container">
+            <div class="row">
+                <div class="col-md-5">
+                    <h2>@snek.snakeName</h2>
+                    <p><strong>Age:</strong> @snek.snakeAge</p>
+                    <p><strong>Breed:</strong> @snek.snakeBreed</p>
+                    <p><strong>Owner:</strong> @snek.ownerName</p>
+                    <p>@snek.snakeTalk</p>
+                </div>
+                <div class="col-md-7">
+                    <img src="@snek.linkToPic" class="img-responsive img-rounded img-show" />
+                </div>
+            </div>
+        </div>
     }
 }
 

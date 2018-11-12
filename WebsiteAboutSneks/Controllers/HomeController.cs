@@ -45,7 +45,7 @@ namespace WebsiteAboutSneks.Controllers
             return View();
         }
 
-        public ActionResult ShowSnake(int id)
+        public ActionResult ShowSnake(string id)
         {
             if (liSnakes.Count == 0)
             {
@@ -57,13 +57,12 @@ namespace WebsiteAboutSneks.Controllers
             foreach (Snake snek in liSnakes)
             {
                 iCount++;
-                if (snek.snakeID == id)
+                if (snek.snakeID == Convert.ToInt32(id))
                 {
                     ViewBag.Snek = snek;
                     break;
                 }
             }
-            ViewBag.Count = iCount;
 
             return View();
         }
