@@ -21,6 +21,13 @@ textarea {
     max-width: 280px;
 }
 
+.img-show{
+    max-height: 300px;
+}
+
+.show-container{
+    margin-top: 75px;
+}
 /*----------------------------------Home Page Styles------------------------------------------*/
 .bg-home {
     /* The image used */
