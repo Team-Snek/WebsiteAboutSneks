@@ -128,3 +128,6 @@ textarea {
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
+.img-list{
+    max-height: 500px;
+}
