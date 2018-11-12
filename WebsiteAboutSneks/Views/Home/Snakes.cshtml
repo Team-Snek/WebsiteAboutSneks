@@ -1,21 +1,14 @@
-﻿<!--
-This is the snakes view. It has a dropdown that consists of three snakes.
-
--->
+﻿@using WebsiteAboutSneks.Models;
 @{
-    ViewBag.Title = "Snakes";
+    ViewBag.Title = "Snake List";
+
 }
 
-<h2>Snakes</h2>
+<h2>All Our Snakes</h2>
 
-<!--Dropdown that consists of three snakes-->
-<p>Mouse over the button to open the dropdown menu of snakes.</p>
-
-<div class="dropdown">
-    <button class="dropbtn">Snakes</button>
-    <div class="dropdown-content">
-        <a href="#">Snake 1</a>
-        <a href="#">Snake 2</a>
-        <a href="#">Snake 3</a>
-    </div>
-
+<ul>
+    @foreach (Snake snek in ViewBag.SnakeList)
+    {
+        <li><a href="@Url.Action("ShowSnake", "Home", new { id = snek.snakeID })">@snek.snakeName</a></li>
+    }
+</ul>

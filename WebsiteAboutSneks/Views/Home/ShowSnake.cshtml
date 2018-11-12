@@ -1,0 +1,33 @@
+﻿@using WebsiteAboutSneks.Models;
+@{
+    if (ViewBag.Snek == null)
+    {
+        <h2>Uh oh!</h2>
+        <h3>Snake not found!</h3>
+        <p>It looks like we had a noodle escape! Please contact us immediately so we can track it down.</p>
+    }
+    else
+    {
+        Snake snek;
+        snek = ViewBag.Snek;
+        ViewBag.Title = snek.snakeName;
+
+        <div class="container show-container">
+            <div class="row">
+                <div class="col-md-5">
+                    <h2>@snek.snakeName</h2>
+                    <p><strong>Age:</strong> @snek.snakeAge</p>
+                    <p><strong>Breed:</strong> @snek.snakeBreed</p>
+                    <p><strong>Owner:</strong> @snek.ownerName</p>
+                    <p>@snek.snakeTalk</p>
+                </div>
+                <div class="col-md-7">
+                    <img src="@snek.linkToPic" class="img-responsive img-rounded img-show" />
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<p>@ViewBag.Count</p>
+
