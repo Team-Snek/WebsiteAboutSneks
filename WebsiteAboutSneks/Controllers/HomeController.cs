@@ -23,5 +23,10 @@ namespace WebsiteAboutSneks.Controllers
         {
             return View();
         }
+
+        public ActionResult Snakes()
+        {
+            return View();
+        }
     }
 }
