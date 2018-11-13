@@ -1,28 +1,24 @@
 ﻿@using WebsiteAboutSneks.Models;
 @{
-    ViewBag.Title = "Snakes";
+    ViewBag.Title = "Snake List";
 
 }
 
-@Html.ActionLink("Home", "Index", "Home")
-> <span>Snakes</span>
-
 <h2>All Our Snakes</h2>
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6">
-            <ul>
+<<<<<<< HEAD
+<p>Mouse over the button to open the dropdown menu of snakes.</p>
+=======
+<h2>Our Snake Community</h2>
+>>>>>>> ec5eb51ee08368d337ad234cb7324f04e7b3b0c5
 
-                @foreach (Snake snek in ViewBag.SnakeList)
-            {
-                <li><a href="@Url.Action("ShowSnake", "Home", new { id = snek.snakeID })">@snek.snakeName</a></li>
+<div class="dropdown">
+    <button class="dropbtn">Snakes</button>
+    <div class="dropdown-content">
+        @foreach (Snake snek in ViewBag.SnakeList)
+        {
+            <a href="@Url.Action("ShowSnake", "Home", new { id = snek.snakeID })">@snek.snakeName</a>
         }
-            </ul>
-        </div>
-        <div class="col-sm-6">
-            <img class="img-responsive img-list" src="~/Content/images/monch.jpg" />
-        </div>
     </div>
 </div>
 
