@@ -1,6 +1,6 @@
 ﻿@using WebsiteAboutSneks.Models;
 @{
-    ViewBag.Title = "Snake List";
+    ViewBag.Title = "Snakes";
 
 }
 
@@ -9,9 +9,20 @@
 
 <h2>All Our Snakes</h2>
 
-<ul>
-    @foreach (Snake snek in ViewBag.SnakeList)
-    {
-        <li><a href="@Url.Action("ShowSnake", "Home", new { id = snek.snakeID })">@snek.snakeName</a></li>
-    }
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <ul>
+
+                @foreach (Snake snek in ViewBag.SnakeList)
+            {
+                <li><a href="@Url.Action("ShowSnake", "Home", new { id = snek.snakeID })">@snek.snakeName</a></li>
+        }
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <img class="img-responsive img-list" src="~/Content/images/monch.jpg" />
+        </div>
+    </div>
+</div>
+

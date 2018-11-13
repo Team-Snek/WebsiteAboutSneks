@@ -34,7 +34,7 @@ namespace WebsiteAboutSneks.Models
         static string smtpAddress = "smtp.gmail.com";
         static int portNumber = 587;
         static bool enableSSL = true;
-        private static string emailFromAddress = "**********@Gmail.com"; //Sender Email Address  
+        private static string emailFromAddress = "***********@gmail.com"; //Sender Email Address  
         private static string password = "**********"; //Sender Password  
         public static string emailToAddress = "receiver@gmail.com"; //Receiver Email Address  
         public static string subject = "Hello";

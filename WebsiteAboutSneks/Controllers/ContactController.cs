@@ -22,7 +22,7 @@ namespace WebsiteAboutSneks.Controllers
         [HttpPost]
         public ActionResult Index(ContactInfo contact)
         {
-            /*This code is optional, but it would be for sending a confirmation email to whoever submitted a contact info form.
+            /*This code is optional, but it would be for sending a confirmation email to whoever submitted a contact info form.*/
             string sSubject="";
             
             if (contact.Subject==1)
@@ -46,7 +46,7 @@ namespace WebsiteAboutSneks.Controllers
             ContactInfo.subject = "Thank you for contacing us!";
             ContactInfo.body = "Thank you for reaching out to us " + contact.Name + "! Our team is in the process of reviewing your message" +
                 ". We will get back to you as soon as we can." + "<br /><br />" + "Subject: " + sSubject + "<br /><br />" + "Message: " + contact.Message;
-            ContactInfo.SendEmail();*/
+            /*ContactInfo.SendEmail();*/
             if (ModelState.IsValid)
             {
                 return View("Confirmation", contact);
