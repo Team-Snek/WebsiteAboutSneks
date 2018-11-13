@@ -6,15 +6,27 @@
 
 <h2>Our Snake Community</h2>
 
-<p>Mouse over the button to open the dropdown menu of snakes.</p>
 
-<div class="dropdown">
-    <button class="dropbtn">Snakes</button>
-    <div class="dropdown-content">
-        @foreach (Snake snek in ViewBag.SnakeList)
-        {
-            <a href="@Url.Action("ShowSnake", "Home", new { id = snek.snakeID })">@snek.snakeName</a>
+
+<div class="row">
+    <div class="col-sm-6">
+        <h3><em>"Every great story seems to start with a snake."<br />~Nicholas Cage</em></h3>
+        <p>Mouse over the button to open the dropdown menu of snakes.</p>
+        <div class="dropdown">
+            <button class="dropbtn">Snakes</button>
+            <div class="dropdown-content">
+                @foreach (Snake snek in ViewBag.SnakeList)
+            {
+                <a href="@Url.Action("ShowSnake", "Home", new { id = snek.snakeID })">@snek.snakeName</a>
         }
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="col-sm-6">
+        <img src="~/Content/images/monch.jpg" class="img-responsive img-list" />
     </div>
 </div>
 
