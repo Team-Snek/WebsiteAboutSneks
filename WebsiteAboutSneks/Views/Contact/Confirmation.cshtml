@@ -4,15 +4,19 @@
     ViewBag.Title = "Confirmation";
 }
 
+@Html.ActionLink("Home", "Index", "Home")
+@:> @Html.ActionLink("Contact", "Index", "Contact")
+> <span>Confirmation</span>
+
 <h2>Confirmation</h2>
 
 <div class="container">
-    <div class="jumbotron"> 
+    <div class="jumbotron">
         <p>
             Thank you so much @Model.Name! We have recieved your message and we will respond as quickly as we can.
             We will be sending a response to @Model.Email. Have a wonderful day!
         </p>
-    
+
     </div>
 </div>
 

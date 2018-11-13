@@ -6,7 +6,8 @@
 
 
 <div class="jumbotron" style="background-image:url(https://wallpaper-house.com/data/out/9/wallpaper2you_295356.jpg); max-width:100%;min-height:300px"></div>
-
+@Html.ActionLink("Home", "Index", "Home")
+> <span>Contact</span>
 <!--<address>
     One Microsoft Way<br />
     Redmond, WA 98052-6399<br />
@@ -31,14 +32,14 @@
         </p>
         <p>
             Subject: @Html.DropDownListFor(x => x.Subject, new[]
-       {new SelectListItem()
-       {Text = "Questions about snakes", Value="1"},
-       new SelectListItem()
-       {Text = "My snake story", Value ="2"},
-       new SelectListItem()
-       {Text = "Snake Care", Value ="3"},
-       new SelectListItem()
-       { Text = "Other", Value = "4" } }, "Choose a subject")
+{new SelectListItem()
+{Text = "Questions about snakes", Value="1"},
+new SelectListItem()
+{Text = "My snake story", Value ="2"},
+new SelectListItem()
+{Text = "Snake Care", Value ="3"},
+new SelectListItem()
+{ Text = "Other", Value = "4" } }, "Choose a subject")
         </p>
         <p>Message: @Html.TextAreaFor(x => x.Message, 10, 40, htmlAttributes: new { placeholder = "Message...", style = "width: 100%; max-width: 100%;" })</p>
 
