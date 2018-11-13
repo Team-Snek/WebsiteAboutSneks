@@ -1,4 +1,20 @@
 ﻿@using WebsiteAboutSneks.Models;
+<head>
+    <style>
+        textarea {
+            width: 150px;
+            min-width:75%;
+            height: 100px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            font-size: 16px;
+            resize: none;
+        }
+    </style>
+</head>
 @{
     if (ViewBag.Snek == null)
     {
@@ -16,6 +32,7 @@
         @:> @Html.ActionLink("Snakes", "Snakes", "Home")
         @:> <span>@snek.snakeName</span>
 
+
         <div class="container show-container">
             <div class="row">
                 <div class="col-md-5">
@@ -30,8 +47,18 @@
                 </div>
             </div>
         </div>
+        <br />
+        <div class="container jumbotron">
+            <form>
+                <h2>Got questions about @snek.snakeName?</h2>
+                <p>Name: <input type="text" name="Name" placeholder="John Smith"></p>
+                <textarea placeholder="I have a question..."></textarea>
+            </form>
+        </div>
     }
 }
 
 <p>@ViewBag.Count</p>
+
+
 
