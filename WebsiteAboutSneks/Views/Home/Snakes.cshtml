@@ -1,14 +1,20 @@
 ﻿@using WebsiteAboutSneks.Models;
 @{
-    ViewBag.Title = "Snakes";
+    ViewBag.Title = "Snake List";
 
 }
 
-<h2>Our Snakes</h2>
+<h2>All Our Snakes</h2>
 
-<ul>
-    @foreach (Snake snek in ViewBag.SnakeList)
-    {
-        <li><a href="@Url.Action("ShowSnake", "Home", new { id = snek.snakeID })">@snek.snakeName</a></li>
-    }
-</ul>
+<p>Mouse over the button to open the dropdown menu of snakes.</p>
+
+<div class="dropdown">
+    <button class="dropbtn">Snakes</button>
+    <div class="dropdown-content">
+        @foreach (Snake snek in ViewBag.SnakeList)
+        {
+            <a href="@Url.Action("ShowSnake", "Home", new { id = snek.snakeID })">@snek.snakeName</a>
+        }
+    </div>
+</div>
+
