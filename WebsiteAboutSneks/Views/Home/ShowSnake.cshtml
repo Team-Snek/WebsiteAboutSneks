@@ -12,6 +12,10 @@
         snek = ViewBag.Snek;
         ViewBag.Title = snek.snakeName;
 
+        @Html.ActionLink("Home", "Index", "Home")
+        @:> @Html.ActionLink("Snakes", "Snakes", "Home")
+        @:> <span>@snek.snakeName</span>
+
         <div class="container show-container">
             <div class="row">
                 <div class="col-md-5">
