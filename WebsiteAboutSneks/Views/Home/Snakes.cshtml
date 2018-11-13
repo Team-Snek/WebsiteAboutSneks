@@ -4,8 +4,10 @@
 
 }
 
-<h2>Our Snake Community</h2>
+@Html.ActionLink("Home", "Index", "Home")
+> <span>Snakes</span>
 
+<h2>Our Snake Community</h2>
 
 
 <div class="row">
@@ -16,9 +18,9 @@
             <button class="dropbtn">Snakes</button>
             <div class="dropdown-content">
                 @foreach (Snake snek in ViewBag.SnakeList)
-            {
-                <a href="@Url.Action("ShowSnake", "Home", new { id = snek.snakeID })">@snek.snakeName</a>
-        }
+                {
+                    <a href="@Url.Action("ShowSnake", "Home", new { id = snek.snakeID })">@snek.snakeName</a>
+                }
             </div>
         </div>
 
