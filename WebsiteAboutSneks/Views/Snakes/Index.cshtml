@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WebsiteAboutSneks.Models.Snake>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Breed.BreedDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Owner.OwnerFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SnakeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SnakeAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SnakeTalk)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Breed.BreedDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Owner.OwnerFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SnakeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SnakeAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SnakeTalk)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SnakeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SnakeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SnakeID })
+        </td>
+    </tr>
+}
+
+</table>

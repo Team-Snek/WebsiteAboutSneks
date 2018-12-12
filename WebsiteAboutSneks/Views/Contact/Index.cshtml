@@ -4,22 +4,23 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-<div class="jumbotron" style="background-image:url(https://wallpaper-house.com/data/out/9/wallpaper2you_295356.jpg); max-width:100%;min-height:300px"></div>
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
+<div class="jumbotron" style="background-image:url(https://wallpaper-house.com/data/out/9/wallpaper2you_295356.jpg); max-width:100%;min-height:300px"></div>
+@Html.ActionLink("Home", "Index", "Home")
+> <span>Contact</span>
+<br />
+<br />
 <address>
-    One Microsoft Way<br />
+    Slytherin Way<br />
     Redmond, WA 98052-6399<br />
     <abbr title="Phone">P:</abbr>
-    425.555.0100
+    555.555.5555
 </address>
 
 <address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+    <strong>Snake Team:</strong>   <a href="mailto:Support@example.com">Snake@Snek.com</a><br />
 </address>
+<h2>Contact us below</h2>
 
 <div class="jumbotron">
     @using (Html.BeginForm())
@@ -32,14 +33,14 @@
         </p>
         <p>
             Subject: @Html.DropDownListFor(x => x.Subject, new[]
-                {new SelectListItem()
-                {Text = "Questions about snakes", Value="1"},
-                new SelectListItem()
-                {Text = "My snake story", Value ="2"},
-                new SelectListItem()
-                {Text = "Snake Care", Value ="3"},
-                new SelectListItem()
-                { Text = "Other", Value = "4" } }, "Choose a subject")
+{new SelectListItem()
+{Text = "Questions about snakes", Value="1"},
+new SelectListItem()
+{Text = "My snake story", Value ="2"},
+new SelectListItem()
+{Text = "Snake Care", Value ="3"},
+new SelectListItem()
+{ Text = "Other", Value = "4" } }, "Choose a subject")
         </p>
         <p>Message: @Html.TextAreaFor(x => x.Message, 10, 40, htmlAttributes: new { placeholder = "Message...", style = "width: 100%; max-width: 100%;" })</p>
 

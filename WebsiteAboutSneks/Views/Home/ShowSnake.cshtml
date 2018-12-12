@@ -1,0 +1,77 @@
+﻿@using WebsiteAboutSneks.Models;
+<head>
+    <style>
+        textarea {
+            width: 150px;
+            min-width: 75%;
+            height: 100px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            font-size: 16px;
+            resize: none;
+        }
+    </style>
+</head>
+@{
+    if (ViewBag.Snek == null)
+    {
+        <h2>Uh oh!</h2>
+        <h3>Snake not found!</h3>
+        <p>It looks like we had a noodle escape! Please contact us immediately so we can track it down.</p>
+    }
+    else
+    {
+        Snake snek;
+        snek = ViewBag.Snek;
+        ViewBag.Title = snek.snakeName;
+
+        @Html.ActionLink("Home", "Index", "Home")
+        @:> @Html.ActionLink("Snakes", "Snakes", "Home")
+        @:> <span>@snek.snakeName</span>
+
+
+
+
+        <div class="container show-container">
+            <div class="row">
+                <div class="col-md-5">
+                    <h2>@snek.snakeName</h2>
+                    <p><strong>Age:</strong> @snek.snakeAge</p>
+                    <p><strong>Breed:</strong> @snek.snakeBreed</p>
+                    <p><strong>Owner:</strong> @snek.ownerName</p>
+                    <p>@snek.snakeTalk</p>
+                </div>
+                <div class="col-md-7">
+                    <img src="@snek.linkToPic" class="img-responsive img-rounded img-show" />
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="container jumbotron">
+            <form>
+                <h2>Got questions about @snek.snakeName?</h2>
+                <p>Name: <input type="text" name="Name" placeholder="John Smith"></p>
+                <textarea placeholder="I have a question..."></textarea>
+                <p></p>
+                <button>Submit</button>
+            </form>
+        </div>
+        <h2>Frequesntly Asked Questions about @snek.snakeName</h2>
+        <div class="jumbotron">
+            <h3>John Smith</h3>
+            <p>What is @snek.snakeName's favorite food? </p>
+            <button>Reply</button>
+        </div>
+        
+
+
+    }
+}
+
+<p>@ViewBag.Count</p>
+
+
+
