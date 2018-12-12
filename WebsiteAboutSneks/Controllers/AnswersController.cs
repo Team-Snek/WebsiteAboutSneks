@@ -13,6 +13,7 @@ namespace WebsiteAboutSneks.Controllers
 {
     public class AnswersController : Controller
     {
+        //stuff
         private SnekContext db = new SnekContext();
 
         // GET: Answers
