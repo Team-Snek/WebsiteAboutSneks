@@ -4,15 +4,19 @@
  Created on 11/9/18
  */
 
- /*
- This Home controller was created by Nate Turner
- */
+/*
+This Home controller was created by Nate Turner
+*/
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using WebsiteAboutSneks.Models;
 
 namespace WebsiteAboutSneks.Controllers
@@ -65,6 +69,30 @@ namespace WebsiteAboutSneks.Controllers
             }
 
             return View();
+        }
+        
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(FormCollection form, bool rememberMe = false)
+        {
+            String email = form["Email address"].ToString();
+            String password = form["Password"].ToString();
+
+            if (string.Equals(email, "greg@test.com") && (string.Equals(password, "greg")))
+            {
+                FormsAuthentication.SetAuthCookie(email, rememberMe);
+
+                return RedirectToAction("Index", "Home");
+
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }
