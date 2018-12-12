@@ -1,4 +1,5 @@
-﻿@using WebsiteAboutSneks.Models;
+﻿@model WebsiteAboutSneks.Models.Snake
+
 <head>
     <style>
         textarea {
@@ -16,7 +17,7 @@
     </style>
 </head>
 @{
-    if (ViewBag.Snek == null)
+    if (Model == null)
     {
         <h2>Uh oh!</h2>
         <h3>Snake not found!</h3>
@@ -24,54 +25,40 @@
     }
     else
     {
-        Snake snek;
-        snek = ViewBag.Snek;
-        ViewBag.Title = snek.snakeName;
-
-        @Html.ActionLink("Home", "Index", "Home")
-        @:> @Html.ActionLink("Snakes", "Snakes", "Home")
-        @:> <span>@snek.snakeName</span>
-
-
-
-
         <div class="container show-container">
             <div class="row">
                 <div class="col-md-5">
-                    <h2>@snek.snakeName</h2>
-                    <p><strong>Age:</strong> @snek.snakeAge</p>
-                    <p><strong>Breed:</strong> @snek.snakeBreed</p>
-                    <p><strong>Owner:</strong> @snek.ownerName</p>
-                    <p>@snek.snakeTalk</p>
+                    <h2></h2>
+                    <p><strong>Name:</strong> @Model.SnakeName</p>
+                    <p><strong>Age:</strong> @Model.SnakeAge</p>
+                    <p><strong>Breed:</strong> @Model.Breed.BreedDescription</p>
+                    <p><strong>Owner:</strong> @Model.Owner.OwnerFirstName @Model.Owner.OwnerLastName</p>
+                    <p>@Model.SnakeTalk</p>
                 </div>
                 <div class="col-md-7">
-                    <img src="@snek.linkToPic" class="img-responsive img-rounded img-show" />
+                    <!--<img src="" class="img-responsive img-rounded img-show" />-->
                 </div>
             </div>
         </div>
         <br />
-        <div class="container jumbotron">
+        <!--<div class="container jumbotron">
             <form>
-                <h2>Got questions about @snek.snakeName?</h2>
+                <h2>Got questions about</h2>
                 <p>Name: <input type="text" name="Name" placeholder="John Smith"></p>
                 <textarea placeholder="I have a question..."></textarea>
                 <p></p>
                 <button>Submit</button>
             </form>
         </div>
-        <h2>Frequesntly Asked Questions about @snek.snakeName</h2>
+        <h2>Frequesntly Asked Questions about</h2>
         <div class="jumbotron">
             <h3>John Smith</h3>
-            <p>What is @snek.snakeName's favorite food? </p>
+            <p>What iss favorite food? </p>
             <button>Reply</button>
-        </div>
-        
+        </div>-->
+
 
 
     }
 }
-
-<p>@ViewBag.Count</p>
-
-
 

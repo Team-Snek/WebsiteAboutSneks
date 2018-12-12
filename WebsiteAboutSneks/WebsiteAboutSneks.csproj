@@ -151,8 +151,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Contact\Confirmation.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Snakes.cshtml" />
-    <Content Include="Views\Home\ShowSnake.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Snakes\Create.cshtml" />
     <Content Include="Views\Snakes\Delete.cshtml" />
@@ -184,6 +182,8 @@
     <Content Include="Views\Answers\Details.cshtml" />
     <Content Include="Views\Answers\Edit.cshtml" />
     <Content Include="Views\Answers\Index.cshtml" />
+    <Content Include="Views\Home\Snakes.cshtml" />
+    <Content Include="Views\Home\ShowSnake.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -22,6 +22,6 @@ namespace WebsiteAboutSneks.Models
         public string OwnerLastName { get; set; }
 
         [DisplayName("Age")]
-        public int OwnerAge { get; set; }
+        public int? OwnerAge { get; set; }
     }
 }
