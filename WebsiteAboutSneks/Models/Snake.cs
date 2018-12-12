@@ -1,36 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace WebsiteAboutSneks.Models
 {
+    [Table("Snake")]
     public class Snake
     {
         [Key]
-        public int snakeID { get; set; }
-        public string snakeName { get; set; }
-        public string ownerName { get; set; }
-        public string snakeBreed { get; set; }
-        public string snakeAge { get; set; }
-        public string snakeTalk { get; set; }
-        public string linkToPic { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int SnakeID { get; set; }
+        
+        public int OwnerID { get; set; }
+        public virtual Owner Owner { get; set; }
 
-        public Snake()
-        {
+        [DisplayName("Snake Name")]
+        public string SnakeName { get; set; }
 
-        }
+        public int BreedID { get; set; }
+        public virtual Breed Breed { get; set; }
 
-        public Snake(int id, string snakename, string ownername, string breed, string age, string comments, string link)
-        {
-            this.snakeID = id;
-            this.snakeName = snakename;
-            this.ownerName = ownername;
-            this.snakeBreed = breed;
-            this.snakeAge = age;
-            this.snakeTalk = comments;
-            this.linkToPic = link;
-        }
+        public string SnakeAge { get; set; }
+        public string SnakeTalk { get; set; }
     }
 }

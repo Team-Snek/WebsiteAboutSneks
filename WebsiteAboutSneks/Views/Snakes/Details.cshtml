@@ -1,0 +1,58 @@
+﻿@model WebsiteAboutSneks.Models.Snake
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Snake</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Breed.BreedDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Breed.BreedDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Owner.OwnerFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Owner.OwnerFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SnakeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SnakeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SnakeAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SnakeAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SnakeTalk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SnakeTalk)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SnakeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
