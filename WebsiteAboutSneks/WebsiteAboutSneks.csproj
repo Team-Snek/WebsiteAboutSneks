@@ -150,6 +150,7 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Contact\Confirmation.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Snakes.cshtml" />
     <Content Include="Views\Home\ShowSnake.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
