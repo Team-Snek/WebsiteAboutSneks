@@ -44,19 +44,12 @@ namespace WebsiteAboutSneks.Controllers
             return View();
         }
 
-        public ActionResult AskQuestion(int id)
-        {
-            Snake snek = db.Snakes.Find(id);
-            ViewBag.Snek = snek;
-            return View();
-        }
-
         // POST: Questions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "QuestionsID,SnakeID,QuestionText")] Questions questions)
+        public ActionResult Create([Bind(Include = "QuestionID,SnakeID,QuestionText")] Questions questions)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +83,7 @@ namespace WebsiteAboutSneks.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "QuestionsID,SnakeID,QuestionText")] Questions questions)
+        public ActionResult Edit([Bind(Include = "QuestionID,SnakeID,QuestionText")] Questions questions)
         {
             if (ModelState.IsValid)
             {
