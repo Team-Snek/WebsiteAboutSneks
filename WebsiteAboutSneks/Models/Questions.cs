@@ -13,7 +13,7 @@ namespace WebsiteAboutSneks.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int QuestionsID { get; set; }
+        public int QuestionID { get; set; }
 
         
         public int SnakeID { get; set; }

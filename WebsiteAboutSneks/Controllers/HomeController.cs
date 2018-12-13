@@ -43,22 +43,34 @@ namespace WebsiteAboutSneks.Controllers
         public ActionResult ShowSnake(int id)
         {
             Snake snake = db.Snakes.Find(id);
-            var questions = db.Questions.Include(q => q.Snake).Where(q => q.SnakeID == id);
+            //This wasn't quite working so I tried a different way of doing it, through the answer and then getting the question.
+            //var questions = db.Database.SqlQuery<Questions>("Select* FROM Questions WHERE Questions.SnakeID=" + id);
+            //foreach (Questions quest in collection)
+            //{
+
+            //}
+            //var answers = db.Answers.ToList();
+            var Answers = db.Answers.Include(a => a.Questions).Where(a => a.Questions.SnakeID == id);
+            //foreach (var answer in Answers)
+            //{
+            //    ViewBag.Answers += answer;
+            //}
+            //var questions = db.Questions.Include(q => q.Snake).Where(q => q.SnakeID == id);
 
             //Create list of answers and add answers that have corresponding question ids.
-            List<Answers> answers = new List<Answers>();
-            foreach(Questions question in questions)
-            {
-                var qa = db.Answers.Where(a => a.QuestionID == question.QuestionsID);
+            //List<Answers> answers = new List<Answers>();
+            //foreach (var question in questions)
+            //{
 
-                foreach(Answers answer in qa)
-                {
-                    answers.Add(answer);
-                }
-            }
+            //    var qa = db.Answers.Where(a => a.QuestionID == question.QuestionID);
+            //    foreach (var answer in qa)
+            //    {
+            //        answers.Add(answer);
+            //    }
+            //}
 
-            ViewBag.Questions = questions;
-            ViewBag.Answers = answers;
+            //ViewBag.Questions = questions;
+            ViewBag.Answers = Answers;
 
             return View(snake);
         }
