@@ -180,6 +180,7 @@
     <Content Include="Views\Questions\Details.cshtml" />
     <Content Include="Views\Questions\Edit.cshtml" />
     <Content Include="Views\Questions\Index.cshtml" />
+    <Content Include="Views\Home\SnakeQuestions.cshtml" />
     <Content Include="Views\Questions\AskQuestion.cshtml" />
     <Content Include="Views\Snakes\Create.cshtml" />
     <Content Include="Views\Snakes\Delete.cshtml" />
