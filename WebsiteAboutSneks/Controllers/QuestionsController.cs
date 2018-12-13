@@ -129,5 +129,12 @@ namespace WebsiteAboutSneks.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult AskQuestion(int id)
+        {
+            Snake snek = db.Snakes.Find(id);
+            ViewBag.Snek = snek;
+            return View();
+        }
     }
 }

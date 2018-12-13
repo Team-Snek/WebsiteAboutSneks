@@ -152,11 +152,6 @@
     <Content Include="Views\Contact\Confirmation.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
-    <Content Include="Views\Snakes\Create.cshtml" />
-    <Content Include="Views\Snakes\Delete.cshtml" />
-    <Content Include="Views\Snakes\Details.cshtml" />
-    <Content Include="Views\Snakes\Edit.cshtml" />
-    <Content Include="Views\Snakes\Index.cshtml" />
     <Content Include="Views\Owners\Create.cshtml" />
     <Content Include="Views\Owners\Delete.cshtml" />
     <Content Include="Views\Owners\Details.cshtml" />
@@ -185,6 +180,12 @@
     <Content Include="Views\Questions\Details.cshtml" />
     <Content Include="Views\Questions\Edit.cshtml" />
     <Content Include="Views\Questions\Index.cshtml" />
+    <Content Include="Views\Questions\AskQuestion.cshtml" />
+    <Content Include="Views\Snakes\Create.cshtml" />
+    <Content Include="Views\Snakes\Delete.cshtml" />
+    <Content Include="Views\Snakes\Details.cshtml" />
+    <Content Include="Views\Snakes\Edit.cshtml" />
+    <Content Include="Views\Snakes\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

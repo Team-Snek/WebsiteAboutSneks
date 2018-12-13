@@ -36,7 +36,7 @@
                     <p>@Model.SnakeTalk</p>
                 </div>
                 <div class="col-md-7">
-                    <!--<img src="" class="img-responsive img-rounded img-show" />-->
+                    <img src="@Model.SnakePicture" class="img-responsive img-rounded img-show" />
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@
             @foreach (var question in ViewBag.Questions)
             {
                 <h3>@question.QuestionText</h3>
-                @foreach(var answer in ViewBag.Answers)
+                foreach(var answer in ViewBag.Answers)
                 {
                     if(answer.QuestionID == question.QuestionID)
                     {

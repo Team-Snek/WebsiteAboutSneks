@@ -26,5 +26,7 @@ namespace WebsiteAboutSneks.Models
 
         public int SnakeAge { get; set; }
         public string SnakeTalk { get; set; }
+
+        public string SnakePicture { get; set; }
     }
 }
