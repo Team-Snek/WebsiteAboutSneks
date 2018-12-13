@@ -57,8 +57,22 @@
             <button>Reply</button>
         </div>-->
 
+        <div class="">
+            @foreach (var question in ViewBag.Questions)
+            {
+                <h3>@question.QuestionText</h3>
+                @foreach(var answer in ViewBag.Answers)
+                {
+                    if(answer.QuestionID == question.QuestionID)
+                    {
+                        <p>@answer.AnswerText</p>
+                    }
+                }
+            }
+        </div>
 
-
+        <h4>Wanna ask a question about @Model.SnakeName?</h4>
+        <a class="btn btn-success" href="@Url.Action("AskQuestion", "Questions", new { id = Model.SnakeID })">Ask a Question</a>
     }
 }
 

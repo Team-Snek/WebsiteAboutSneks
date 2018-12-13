@@ -43,6 +43,23 @@ namespace WebsiteAboutSneks.Controllers
         public ActionResult ShowSnake(int id)
         {
             Snake snake = db.Snakes.Find(id);
+            var questions = db.Questions.Include(q => q.Snake).Where(q => q.SnakeID == id);
+
+            //Create list of answers and add answers that have corresponding question ids.
+            List<Answers> answers = new List<Answers>();
+            foreach(Questions question in questions)
+            {
+                var qa = db.Answers.Where(a => a.QuestionID == question.QuestionsID);
+
+                foreach(Answers answer in qa)
+                {
+                    answers.Add(answer);
+                }
+            }
+
+            ViewBag.Questions = questions;
+            ViewBag.Answers = answers;
+
             return View(snake);
         }
         
