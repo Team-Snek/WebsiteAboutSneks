@@ -49,7 +49,7 @@ namespace WebsiteAboutSneks.Controllers
             List<Answers> answers = new List<Answers>();
             foreach(Questions question in questions)
             {
-                var qa = db.Answers.Where(a => a.QuestionID == question.QuestionsID);
+                var qa = db.Answers.Where(a => a.QuestionID == question.QuestionID);
 
                 foreach(Answers answer in qa)
                 {
