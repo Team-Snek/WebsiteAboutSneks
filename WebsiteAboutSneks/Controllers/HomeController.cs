@@ -4,15 +4,19 @@
  Created on 11/9/18
  */
 
- /*
- This Home controller was created by Nate Turner
- */
+/*
+This Home controller was created by Nate Turner
+*/
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using WebsiteAboutSneks.DAL;
 using WebsiteAboutSneks.Models;
 using System.Data.Entity;
@@ -39,7 +43,48 @@ namespace WebsiteAboutSneks.Controllers
         public ActionResult ShowSnake(int id)
         {
             Snake snake = db.Snakes.Find(id);
+            var questions = db.Questions.Include(q => q.Snake).Where(q => q.SnakeID == id);
+
+            //Create list of answers and add answers that have corresponding question ids.
+            List<Answers> answers = new List<Answers>();
+            foreach(Questions question in questions)
+            {
+                var qa = db.Answers.Where(a => a.QuestionID == question.QuestionsID);
+
+                foreach(Answers answer in qa)
+                {
+                    answers.Add(answer);
+                }
+            }
+
+            ViewBag.Questions = questions;
+            ViewBag.Answers = answers;
+
             return View(snake);
+        }
+        
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(FormCollection form, bool rememberMe = false)
+        {
+            String email = form["Email address"].ToString();
+            String password = form["Password"].ToString();
+
+            if (string.Equals(email, "greg@test.com") && (string.Equals(password, "greg")))
+            {
+                FormsAuthentication.SetAuthCookie(email, rememberMe);
+
+                return RedirectToAction("Index", "Home");
+
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }
