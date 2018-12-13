@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace WebsiteAboutSneks.Controllers
 {
+    [Authorize]
     public class AboutController : Controller
     {
         // GET: About
