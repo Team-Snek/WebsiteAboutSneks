@@ -49,7 +49,7 @@ namespace WebsiteAboutSneks.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "QuestionsID,SnakeID,QuestionText")] Questions questions)
+        public ActionResult Create([Bind(Include = "QuestionID,SnakeID,QuestionText")] Questions questions)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace WebsiteAboutSneks.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "QuestionsID,SnakeID,QuestionText")] Questions questions)
+        public ActionResult Edit([Bind(Include = "QuestionID,SnakeID,QuestionText")] Questions questions)
         {
             if (ModelState.IsValid)
             {
