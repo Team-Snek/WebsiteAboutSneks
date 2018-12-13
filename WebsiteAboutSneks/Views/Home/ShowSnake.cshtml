@@ -17,7 +17,6 @@
     </style>
 </head>
 @{
-    int icount=0;
     if (Model == null)
     {
         <h2>Uh oh!</h2>
@@ -58,14 +57,17 @@
             <button>Reply</button>
         </div>-->
 
-        <h1>Questions about @Model.SnakeName:</h1>
         <div class="">
-            @foreach (var answer in ViewBag.Answers)
+            @foreach (var question in ViewBag.Questions)
             {
-                icount++;
-
-                <h3>@icount. @answer.Questions.QuestionText</h3>
-                <p>A: @answer.AnswerText</p>
+                <h3>@question.QuestionText</h3>
+                @foreach(var answer in ViewBag.Answers)
+                {
+                    if(answer.QuestionID == question.QuestionID)
+                    {
+                        <p>@answer.AnswerText</p>
+                    }
+                }
             }
         </div>
 
