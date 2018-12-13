@@ -28,10 +28,10 @@ namespace WebsiteAboutSneks.Controllers
         private SnekContext db = new SnekContext();
         
 
-        public ActionResult Index()
-        {
-            return View();
-        }
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
 
         public ActionResult Snakes()
         {
@@ -57,6 +57,45 @@ namespace WebsiteAboutSneks.Controllers
             String email = form["Email address"].ToString();
             String password = form["Password"].ToString();
 
+            var currentUser = db.Users.Where(a => a.UserEmail == email).Where(a => a.Password == password);
+
+            //var currentUser = db.Database.SqlQuery<User>(
+            //"Select * " +
+            //"FROM User " +
+            //"WHERE UserEmail = '" + email + "' AND " +
+            //"Password = '" + password + "'");
+
+            if (currentUser.Count() > 0)
+            {
+                FormsAuthentication.SetAuthCookie(email, rememberMe);
+                return RedirectToAction("Index", "Home", new { userlogin = email });
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        //GET: User
+        [Authorize]
+        public ActionResult Index(String userlogin)
+        {
+            IEnumerable<User> user = db.Database.SqlQuery<User>(
+            "Select User.UserID, User.Password, " +
+            "FROM User ");
+
+            ViewBag.Parm = userlogin;
+
+            return View(user);
+        }
+
+        /*Hard-coded username and password
+        [HttpPost]
+        public ActionResult Login(FormCollection form, bool rememberMe = false)
+        {
+            String email = form["Email address"].ToString();
+            String password = form["Password"].ToString();
+
             if (string.Equals(email, "greg@test.com") && (string.Equals(password, "greg")))
             {
                 FormsAuthentication.SetAuthCookie(email, rememberMe);
@@ -69,5 +108,6 @@ namespace WebsiteAboutSneks.Controllers
                 return View();
             }
         }
+        */
     }
 }
