@@ -51,9 +51,9 @@ namespace WebsiteAboutSneks.Controllers
             {
                 var qa = db.Answers.Where(a => a.QuestionID == question.QuestionID);
 
-                foreach(Answers answer in qa)
+               foreach(Answers answer in qa)
                 {
-                    answers.Add(answer);
+                  answers.Add(answer);
                 }
             }
 
