@@ -24,7 +24,7 @@ namespace WebsiteAboutSneks.Models
         public int BreedID { get; set; }
         public virtual Breed Breed { get; set; }
 
-        public string SnakeAge { get; set; }
+        public int SnakeAge { get; set; }
         public string SnakeTalk { get; set; }
     }
 }

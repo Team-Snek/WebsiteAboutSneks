@@ -19,20 +19,14 @@ using System.Web.Mvc;
 using System.Web.Security;
 using WebsiteAboutSneks.DAL;
 using WebsiteAboutSneks.Models;
+using System.Data.Entity;
 
 namespace WebsiteAboutSneks.Controllers
 {
     public class HomeController : Controller
     {
-        //Create list of snake objects.
-        public List<Snake> liSnakes = new List<Snake>();
-
-        public void AddSnakes()
-        {
-            //liSnakes.Add(new Snake(1, "Artemis", "Nate", "Corn snake", "4 years", "This girl is sassy, but super sweet!", "/Content/images/artemis.jpg"));
-            //liSnakes.Add(new Snake(2, "Athena", "Kelly", "Corn snake", "4 years", "This girl is soooo snuggly!", "/Content/images/athena.jpg"));
-            //liSnakes.Add(new Snake(3, "Midas", "Nate & Kelly", "Corn snake", "1 year", "Tiny, cute butter noodle.", "/Content/images/midas.jpg"));
-        }
+        private SnekContext db = new SnekContext();
+        
 
         public ActionResult Index()
         {
@@ -41,35 +35,15 @@ namespace WebsiteAboutSneks.Controllers
 
         public ActionResult Snakes()
         {
-            if (liSnakes.Count == 0)
-            {
-                AddSnakes();
-            }
-            ViewBag.SnakeList = liSnakes;
-
-            return View();
+            var snakes = db.Snakes.Include(s => s.Breed).Include(s => s.Owner);
+            //var snakes = db.Snakes;
+            return View(snakes);
         }
 
-        public ActionResult ShowSnake(string id)
+        public ActionResult ShowSnake(int id)
         {
-            if (liSnakes.Count == 0)
-            {
-                AddSnakes();
-            }
-
-            //Iterate through list to find matching snake.
-            //int iCount = 0;
-            foreach (Snake snek in liSnakes)
-            {
-                //iCount++;
-                //if (snek.snakeID == Convert.ToInt32(id))
-                //{
-                //    ViewBag.Snek = snek;
-                //    break;
-                //}
-            }
-
-            return View();
+            Snake snake = db.Snakes.Find(id);
+            return View(snake);
         }
         
         public ActionResult Login()

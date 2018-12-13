@@ -1,7 +1,7 @@
-﻿@using WebsiteAboutSneks.Models;
-@{
-    ViewBag.Title = "Snake List";
+﻿@model IEnumerable<WebsiteAboutSneks.Models.Snake>
 
+@{
+     ViewBag.Title = "Snake List";
 }
 
 @Html.ActionLink("Home", "Index", "Home")
@@ -17,9 +17,9 @@
         <div class="dropdown">
             <button class="dropbtn">Snakes</button>
             <div class="dropdown-content">
-                @foreach (Snake snek in ViewBag.SnakeList)
+                @foreach (var snek in Model)
                 {
-                    <a href="@Url.Action("ShowSnake", "Home", new { id = snek.snakeID })">@snek.snakeName</a>
+                    <a href="@Url.Action("ShowSnake", "Home", new { id = snek.SnakeID })">@snek.SnakeName</a>
                 }
             </div>
         </div>
@@ -31,4 +31,3 @@
         <img src="~/Content/images/monch.jpg" class="img-responsive img-list" />
     </div>
 </div>
-
