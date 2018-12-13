@@ -1,0 +1,61 @@
+﻿@model WebsiteAboutSneks.Models.Snake
+
+<head>
+    <style>
+        textarea {
+            width: 150px;
+            min-width: 75%;
+            height: 100px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            font-size: 16px;
+            resize: none;
+        }
+    </style>
+</head>
+@{
+    if (Model == null)
+    {
+        ViewBag.Title = "Escap-ed Snek";
+        <h2>Uh oh!</h2>
+        <h3>Snake not found!</h3>
+        <p>It looks like we had a noodle escape! Please contact us immediately so we can track it down.</p>
+    }
+    else
+    {
+        ViewBag.Title = "Questions about " + Model.SnakeName;
+        <div class="container show-container">
+            <div class="row">
+                <div class="col-md-5">
+                    <h2>Questions about @Model.SnakeName</h2>
+                    
+                </div>
+                <div class="col-md-7">
+                    <img src="@Model.SnakePicture" class="img-responsive img-rounded img-show" />
+                </div>
+            </div>
+        </div>
+        <br />
+
+        <div class="">
+            @foreach (var question in ViewBag.Questions)
+            {
+                <h3>@question.QuestionText</h3>
+                @foreach (var answer in ViewBag.Answers)
+                {
+                    if (answer.QuestionID == question.QuestionID)
+                    {
+                        <p>@answer.AnswerText</p>
+                    }
+                }
+            }
+        </div>
+
+        <h4>Wanna ask a question about @Model.SnakeName?</h4>
+        <a class="btn btn-success" href="@Url.Action("AskQuestion", "Questions", new { id = Model.SnakeID })">Ask a Question</a>
+    }
+}
+
