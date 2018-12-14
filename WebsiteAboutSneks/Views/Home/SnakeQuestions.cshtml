@@ -44,7 +44,7 @@
             @foreach (var question in ViewBag.Questions)
             {
                 <h3>@question.QuestionText</h3>
-                @foreach (var answer in ViewBag.Answers)
+                foreach (var answer in ViewBag.Answers)
                 {
                     if (answer.QuestionID == question.QuestionID)
                     {

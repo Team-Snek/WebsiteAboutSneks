@@ -63,6 +63,7 @@ namespace WebsiteAboutSneks.Controllers
             return View(snake);
         }
 
+        [Authorize]
         public ActionResult SnakeQuestions(int id)
         {
             Snake snake = db.Snakes.Find(id);
@@ -117,16 +118,16 @@ namespace WebsiteAboutSneks.Controllers
         }
 
         //GET: User
-        [Authorize]
+        //[Authorize]
         public ActionResult Index(String userlogin)
         {
-            IEnumerable<User> user = db.Database.SqlQuery<User>(
-            "Select User.UserID, User.Password, " +
-            "FROM User ");
+            //IEnumerable<User> user = db.Database.SqlQuery<User>(
+            //"Select User.UserID, User.Password, " +
+            //"FROM User ");
 
             ViewBag.Parm = userlogin;
 
-            return View(user);
+            return View();
         }
 
         /*Hard-coded username and password
