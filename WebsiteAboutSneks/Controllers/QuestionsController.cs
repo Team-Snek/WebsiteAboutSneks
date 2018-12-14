@@ -55,7 +55,7 @@ namespace WebsiteAboutSneks.Controllers
             {
                 db.Questions.Add(questions);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Snakes", "Home");
             }
 
             ViewBag.SnakeID = new SelectList(db.Snakes, "SnakeID", "SnakeName", questions.SnakeID);
