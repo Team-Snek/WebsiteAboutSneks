@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using WebsiteAboutSneks.DAL;
 using WebsiteAboutSneks.Models;
 
@@ -53,6 +54,7 @@ namespace WebsiteAboutSneks.Controllers
             {
                 db.Users.Add(user);
                 db.SaveChanges();
+                //FormsAuthentication.SetAuthCookie(user.UserEmail, false);
                 return RedirectToAction("Index");
             }
 
