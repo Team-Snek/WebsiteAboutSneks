@@ -53,19 +53,20 @@ namespace WebsiteAboutSneks.Controllers
             var questions = db.Questions.Include(q => q.Snake).Where(q => q.SnakeID == id);
 
             //Create list of answers and add answers that have corresponding question ids.
-            List<Answers> answers = new List<Answers>();
+            Dictionary<int, Answers> qa = new Dictionary<int, Answers>();
+
             foreach (Questions question in questions)
             {
-                var qa = db.Answers.Where(a => a.QuestionID == question.QuestionID);
+                Answers answer = db.Answers.Where(a => a.QuestionID == question.QuestionID).SingleOrDefault();
 
-                foreach (Answers answer in qa)
+                if(answer != null)
                 {
-                    answers.Add(answer);
+                    qa.Add(question.QuestionID, answer);
                 }
             }
 
             ViewBag.Questions = questions;
-            ViewBag.Answers = answers;
+            ViewBag.Answers = qa;
 
             return View(snake);
         }
@@ -76,7 +77,7 @@ namespace WebsiteAboutSneks.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(FormCollection form, bool rememberMe = false)
+        public ActionResult Login(FormCollection form, bool rememberMe = true)
         {
             String email = form["Email address"].ToString();
             String password = form["Password"].ToString();

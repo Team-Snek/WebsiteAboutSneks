@@ -1,4 +1,5 @@
 ﻿@model WebsiteAboutSneks.Models.Snake
+@using WebsiteAboutSneks.Models;
 
 <head>
     <style>
@@ -27,6 +28,7 @@
     else
     {
         ViewBag.Title = "Questions about " + Model.SnakeName;
+        Dictionary<int, Answers> answers = ViewBag.Answers;
         <div class="container show-container">
             <div class="row">
                 <div class="col-md-5">
@@ -41,18 +43,20 @@
         <br />
 
         <div class="">
-            @foreach (var question in ViewBag.Questions)
+            @foreach (Questions question in ViewBag.Questions)
             {
+                int qid = question.QuestionID;
                 <h3>@question.QuestionText</h3>
-                foreach (var answer in ViewBag.Answers)
+                if (answers.ContainsKey(qid))
                 {
-                    if (answer.QuestionID == question.QuestionID)
-                    {
-                        <p>@answer.AnswerText</p>
-                    }
-                }
+                    <p>@answers[qid].AnswerText</p>
 
-                <a class="btn btn-info" href="@Url.Action("AnswerQuestion", "Answers", new { id = question.QuestionID })">Reply</a>
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "Answers", new { id = answers[qid].AnswerID })">Update Answer</a>
+                }
+                else
+                {
+                    <a class="btn btn-info" href="@Url.Action("AnswerQuestion", "Answers", new { id = question.QuestionID })">Reply</a>
+                }
             }
         </div>
 
