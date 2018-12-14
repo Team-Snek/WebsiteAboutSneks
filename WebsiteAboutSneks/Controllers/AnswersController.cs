@@ -54,7 +54,7 @@ namespace WebsiteAboutSneks.Controllers
             {
                 db.Answers.Add(answers);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Snakes", "Home");
             }
 
             return View(answers);
@@ -124,6 +124,17 @@ namespace WebsiteAboutSneks.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [Authorize]
+        public ActionResult AnswerQuestion(int id)
+        {
+            Questions question = db.Questions.Find(id);
+            Snake snek = db.Snakes.Find(question.SnakeID);
+
+            ViewBag.Snek = snek;
+            ViewBag.Question = question;
+            return View();
         }
     }
 }

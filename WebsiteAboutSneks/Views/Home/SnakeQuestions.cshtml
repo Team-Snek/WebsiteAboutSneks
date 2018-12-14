@@ -51,6 +51,8 @@
                         <p>@answer.AnswerText</p>
                     }
                 }
+
+                <a class="btn btn-info" href="@Url.Action("AnswerQuestion", "Answers", new { id = question.QuestionID })">Reply</a>
             }
         </div>
 
