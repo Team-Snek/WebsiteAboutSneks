@@ -42,7 +42,7 @@
             </div>
         </div>
         <br />
-        <a class="btn btn-info" href="@Url.Action("SnakeQuestions")">See comments and questions about @Model.SnakeName</a>
+        <a class="btn btn-info" href="@Url.Action("SnakeQuestions", new { id = Model.SnakeID })">See comments and questions about @Model.SnakeName</a>
     }
 }
 
