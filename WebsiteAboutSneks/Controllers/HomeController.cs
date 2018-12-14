@@ -63,25 +63,27 @@ namespace WebsiteAboutSneks.Controllers
             return View(snake);
         }
 
+        [Authorize]
         public ActionResult SnakeQuestions(int id)
         {
             Snake snake = db.Snakes.Find(id);
             var questions = db.Questions.Include(q => q.Snake).Where(q => q.SnakeID == id);
 
             //Create list of answers and add answers that have corresponding question ids.
-            List<Answers> answers = new List<Answers>();
+            Dictionary<int, Answers> qa = new Dictionary<int, Answers>();
+
             foreach (Questions question in questions)
             {
-                var qa = db.Answers.Where(a => a.QuestionID == question.QuestionID);
+                Answers answer = db.Answers.Where(a => a.QuestionID == question.QuestionID).SingleOrDefault();
 
-                foreach (Answers answer in qa)
+                if(answer != null)
                 {
-                    answers.Add(answer);
+                    qa.Add(question.QuestionID, answer);
                 }
             }
 
             ViewBag.Questions = questions;
-            ViewBag.Answers = answers;
+            ViewBag.Answers = qa;
 
             return View(snake);
         }
@@ -108,7 +110,7 @@ namespace WebsiteAboutSneks.Controllers
             if (currentUser.Count() > 0)
             {
                 FormsAuthentication.SetAuthCookie(email, rememberMe);
-                return RedirectToAction("Index", "Home", new { userlogin = email });
+                return RedirectToAction("Snakes", "Home", new { userlogin = email });
             }
             else
             {
@@ -117,16 +119,14 @@ namespace WebsiteAboutSneks.Controllers
         }
 
         //GET: User
-        [Authorize]
-        public ActionResult Index(String userlogin)
+        //[Authorize]
+        public ActionResult Index()
         {
-            IEnumerable<User> user = db.Database.SqlQuery<User>(
-            "Select User.UserID, User.Password, " +
-            "FROM User ");
+            //IEnumerable<User> user = db.Database.SqlQuery<User>(
+            //"Select User.UserID, User.Password, " +
+            //"FROM User ");
 
-            ViewBag.Parm = userlogin;
-
-            return View(user);
+            return View();
         }
 
         /*Hard-coded username and password

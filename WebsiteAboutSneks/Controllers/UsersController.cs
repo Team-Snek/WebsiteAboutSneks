@@ -55,7 +55,7 @@ namespace WebsiteAboutSneks.Controllers
                 db.Users.Add(user);
                 db.SaveChanges();
                 //FormsAuthentication.SetAuthCookie(user.UserEmail, false);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
 
             return View(user);

@@ -189,6 +189,7 @@
     <Content Include="Views\Snakes\Details.cshtml" />
     <Content Include="Views\Snakes\Edit.cshtml" />
     <Content Include="Views\Snakes\Index.cshtml" />
+    <Content Include="Views\Answers\AnswerQuestion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
