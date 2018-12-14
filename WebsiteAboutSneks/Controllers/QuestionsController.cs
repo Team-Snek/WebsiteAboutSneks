@@ -130,6 +130,7 @@ namespace WebsiteAboutSneks.Controllers
             base.Dispose(disposing);
         }
 
+        [Authorize]
         public ActionResult AskQuestion(int id)
         {
             Snake snek = db.Snakes.Find(id);

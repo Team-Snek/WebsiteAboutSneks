@@ -26,7 +26,10 @@
                         <li>@Html.ActionLink("Snakes", "Snakes", "Home")</li>
                         <li>@Html.ActionLink("About", "Index", "About")</li>
                         <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
                         <li>@Html.ActionLink("Login", "Login", "Home")</li>
+                        }
                     </ul>
                 </div>
             </div>

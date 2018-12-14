@@ -42,22 +42,27 @@
         </div>
         <br />
 
-        <div class="">
+        <div class="qa-section">
             @foreach (Questions question in ViewBag.Questions)
-            {
-                int qid = question.QuestionID;
-                <h3>@question.QuestionText</h3>
-                if (answers.ContainsKey(qid))
                 {
-                    <p>@answers[qid].AnswerText</p>
+                    int qid = question.QuestionID;
+                    <h3 class="qa-head">Q. @question.QuestionText</h3>
+                    if (answers.ContainsKey(qid))
+                    {
+                        <div class="qa-text">
+                            <p class="">A. @answers[qid].AnswerText</p>
 
-                    <a class="btn btn-warning" href="@Url.Action("Edit", "Answers", new { id = answers[qid].AnswerID })">Update Answer</a>
+                            <a class="btn btn-info" href="@Url.Action("Edit", "Answers", new { id = answers[qid].AnswerID })">Update Answer</a>
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div class="qa-text">
+                            <a class="btn btn-info" href="@Url.Action("AnswerQuestion", "Answers", new { id = question.QuestionID })">Reply</a>
+                        </div>
+                    }
                 }
-                else
-                {
-                    <a class="btn btn-info" href="@Url.Action("AnswerQuestion", "Answers", new { id = question.QuestionID })">Reply</a>
-                }
-            }
         </div>
 
         <h4>Wanna ask a question about @Model.SnakeName?</h4>

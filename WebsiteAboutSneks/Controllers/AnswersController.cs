@@ -86,7 +86,7 @@ namespace WebsiteAboutSneks.Controllers
             {
                 db.Entry(answers).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Snakes", "Home");
             }
             return View(answers);
         }

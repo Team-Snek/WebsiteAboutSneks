@@ -151,3 +151,16 @@ textarea {
 .img-list{
     max-height: 500px;
 }
+.qa-section{
+    background-color: lightsteelblue;
+    border-radius: 10px;
+    border: 1px solid forestgreen;
+    padding: 40px;
+}
+.qa-head{
+    font-family: 'Comic Sans MS', Arial, sans-serif;
+}
+.qa-text{
+    margin-left: 30px;
+    max-width: 500px;
+}

@@ -77,7 +77,7 @@ namespace WebsiteAboutSneks.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(FormCollection form, bool rememberMe = true)
+        public ActionResult Login(FormCollection form, bool rememberMe = false)
         {
             String email = form["Email address"].ToString();
             String password = form["Password"].ToString();
@@ -93,7 +93,7 @@ namespace WebsiteAboutSneks.Controllers
             if (currentUser.Count() > 0)
             {
                 FormsAuthentication.SetAuthCookie(email, rememberMe);
-                return RedirectToAction("Index", "Home", new { userlogin = email });
+                return RedirectToAction("Snakes", "Home", new { userlogin = email });
             }
             else
             {
@@ -103,13 +103,11 @@ namespace WebsiteAboutSneks.Controllers
 
         //GET: User
         //[Authorize]
-        public ActionResult Index(String userlogin)
+        public ActionResult Index()
         {
             //IEnumerable<User> user = db.Database.SqlQuery<User>(
             //"Select User.UserID, User.Password, " +
             //"FROM User ");
-
-            ViewBag.Parm = userlogin;
 
             return View();
         }
